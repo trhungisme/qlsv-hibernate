@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entities.DMMH" table="dmmh">
+        <id name="MaMH" column="MaMH" type="string"></id>
+        <property name="TenMH" column="TenMH" type="string"/>
+        <property name="SoTiet" column="SoTiet" type="int"/>
+        <set name="ketQuas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaMH" not-null="false" />
+            </key>
+            <one-to-many class="entities.KetQua" />
+        </set>
+    </class>
+</hibernate-mapping>

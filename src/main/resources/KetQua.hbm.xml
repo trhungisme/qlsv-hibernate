@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entities.KetQua" table="ketqua">
+        <id name="LanThi" column="LanThi" type="int"></id>
+        <property name="Diem" column="Diem" type="float"/>
+        <many-to-one name="dmsv" class="entities.DMSV" fetch="select">
+            <column name="MaSV" not-null="false" />
+        </many-to-one>
+        <many-to-one name="dmmh" class="entities.DMMH" fetch="select">
+            <column name="MaMH" not-null="false" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
