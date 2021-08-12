@@ -1,7 +1,13 @@
 import entities.*;
 import org.hibernate.*;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -27,7 +33,11 @@ public class Main {
             //use criteria
 //            Criteria criteria = session.createCriteria(DMSV.class);
 //            criteria.setFirstResult(1);
-//            criteria.setMaxResults(3);          //gioi han so luong lay ra
+//            criteria.setMaxResults(3);                                                      //gioi han so luong lay ra
+//            criteria.add(Restrictions.eq("TenSV", "Hung"));                 //lay sinh vien co ten la Hung
+//            criteria.add(Restrictions.gt("HocBong", (float)10000));             //hoc bong lon hon 10000
+//            criteria.addOrder(Order.desc("HocBong"));                                       //sap xep giam dan
+//            criteria.setProjection(Projections.avg("HocBong"));         //tinh trung binh
 //            List result = criteria.list();
 //            result.forEach(sv -> System.out.println(sv.toString()));
 
@@ -43,7 +53,11 @@ public class Main {
 //            session.save(dmsv);
 //            transaction.commit();
 
-            
+            //use JPQL
+//            CriteriaBuilder builder = session.getCriteriaBuilder();
+//            CriteriaQuery<DMSV> query =  builder.createQuery(DMSV.class);
+//            Root<DMSV> root = query.from(DMSV.class);               //root = from
+//            query.select(root);
 
         } catch (HibernateException e) {
             if (transaction != null) transaction.rollback();
