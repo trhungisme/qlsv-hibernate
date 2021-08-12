@@ -26,6 +26,7 @@
         <mapping resource="DMKhoa.hbm.xml" />
         <mapping resource="KetQua.hbm.xml" />
         <mapping resource="DMMH.hbm.xml" />
+        <mapping resource="Club.hbm.xml" />
 
     </session-factory>
 </hibernate-configuration>

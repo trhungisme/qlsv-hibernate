@@ -21,5 +21,13 @@
             </key>
             <one-to-many class="entities.KetQua" />
         </set>
+        <set name="clubs" table="club_sv" inverse="false" lazy="true" fetch="select" cascade="all" >
+            <key>
+                <column name="MaSV" not-null="false" />
+            </key>
+            <many-to-many entity-name="entities.Club">
+                <column name="clubId" not-null="false" />
+            </many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

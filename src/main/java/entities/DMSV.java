@@ -13,6 +13,16 @@ public class DMSV {
     private float HocBong;
     private DMKhoa dmKhoa;
     private Set<KetQua> ketQuas;
+    private Set<Club> clubs;
+
+
+    public Set<Club> getClubs() {
+        return clubs;
+    }
+
+    public void setClubs(Set<Club> clubs) {
+        this.clubs = clubs;
+    }
 
     public DMSV() {
     }

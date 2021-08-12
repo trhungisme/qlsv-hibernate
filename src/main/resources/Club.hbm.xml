@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entities.Club" table="club">
+        <id name="clubId" column="clubId" type="string"></id>
+        <property name="name" column="name" type="string"/>
+        <property name="description" column="description" type="string"/>
+        <property name="school" column="school" type="string"/>
+        <set name="dmsvs" table="club_sv" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="clubId" not-null="true" />
+            </key>
+            <many-to-many entity-name="entities.DMSV">
+                <column name="MaSV" not-null="false" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

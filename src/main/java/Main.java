@@ -1,12 +1,11 @@
-import entities.DMKhoa;
-import entities.DMMH;
-import entities.DMSV;
-import entities.KetQua;
+import entities.*;
 import org.hibernate.*;
 import util.HibernateUtil;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -26,13 +25,25 @@ public class Main {
 //        transaction.commit();
 
             //use criteria
-            Criteria criteria = session.createCriteria(DMSV.class);
-            criteria.setFirstResult(1);
-            criteria.setMaxResults(3);          //gioi han so luong lay ra
-            List result = criteria.list();
-            result.forEach(sv -> System.out.println(sv.toString()));
+//            Criteria criteria = session.createCriteria(DMSV.class);
+//            criteria.setFirstResult(1);
+//            criteria.setMaxResults(3);          //gioi han so luong lay ra
+//            List result = criteria.list();
+//            result.forEach(sv -> System.out.println(sv.toString()));
 
+            //use many-to-many
+//            DMSV dmsv = session.get(DMSV.class, "A13");
+//            Club club1 = new Club("SAMI" , "Đội sinh viên tình nguyện viện Toán", "Sinh viên tình nguyện thuộc viện Toán", "Đại học BKHN");
+//            Club club2 = new Club("SEC" , "Đội sinh viên tình nguyện viện DTVT", "Sinh viên tình nguyện thuộc viện DTVT", "Đại học BKHN");
+//            Set<Club> clubs = new HashSet<Club>();
+//            clubs.add(club1);
+//            clubs.add(club2);
+//
+//            dmsv.setClubs(clubs);
+//            session.save(dmsv);
+//            transaction.commit();
 
+            
 
         } catch (HibernateException e) {
             if (transaction != null) transaction.rollback();
